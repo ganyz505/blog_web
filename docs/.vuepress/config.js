@@ -2,7 +2,7 @@ module.exports = {
     title: "ganyzpro的Blog",
     description: "This is a blog.",
     base: '/blog_web/',
-    dest:'./dist',
+    // dest:'./dist',
     markdown: {
         lineNumbers: true // 代码块显示行号
     },
