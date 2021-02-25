@@ -2,7 +2,7 @@ module.exports = {
     title: "ganyzpro的Blog",
     description: "This is a blog.",
     base: '/blog_web/',
-    // dest:'./dist',
+    dest:'./dist',
     markdown: {
         lineNumbers: true // 代码块显示行号
     },
@@ -11,8 +11,8 @@ module.exports = {
         lastUpdated: 'Last Updated' ,// 文档更新时间：每个文件git最后提交的时间,
         nav:[
           {text: 'Web', link: '/web/'},
-          {text: '进阶', link: '/other/'},
-          {text: '数据结构', link: '/dataStru/'},
+          // {text: '进阶', link: '/other/'},
+          // {text: '数据结构', link: '/dataStru/'},
           // {text: '心情小镇', link: 'https://raindays.cn/'}, 
           // {text: '全栈项目', link: 'https://github.com/wsydxiangwang/Mood'}, 
           {text: 'Github', link: 'https://github.com/ganyzpro/blog_web'} 
@@ -28,13 +28,15 @@ module.exports = {
               //     ]
               // },
               ['/web/base/js','js基础'],
+              ['/web/base/handle','手写源码'],
+              ['/web/base/stack','数据结构与算法']
           ],
-          '/other/':[
-              ['/other/handle','手写源码'],
-          ],
-          '/dataStru/':[
-              ['/dataStru/stack','数据结构与算法'],
-          ],
+          // '/other/':[
+          //     ['/other/handle','手写源码'],
+          // ],
+          // '/dataStru/':[
+          //     ['/dataStru/stack','数据结构与算法'],
+          // ],
         }
     }
   }
