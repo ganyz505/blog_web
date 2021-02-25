@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>ganyzpro的Blog</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    
+    <meta name="description" content="This is a blog.">
+    
+    <link rel="preload" href="/blog_web/assets/css/0.styles.18b9dbef.css" as="style"><link rel="preload" href="/blog_web/assets/js/app.844154a0.js" as="script"><link rel="preload" href="/blog_web/assets/js/2.172aba56.js" as="script"><link rel="preload" href="/blog_web/assets/js/9.0299dd8c.js" as="script"><link rel="prefetch" href="/blog_web/assets/js/10.00317c4f.js"><link rel="prefetch" href="/blog_web/assets/js/11.844df199.js"><link rel="prefetch" href="/blog_web/assets/js/3.8179b05a.js"><link rel="prefetch" href="/blog_web/assets/js/4.c999fad4.js"><link rel="prefetch" href="/blog_web/assets/js/5.d83fd23f.js"><link rel="prefetch" href="/blog_web/assets/js/6.95c151eb.js"><link rel="prefetch" href="/blog_web/assets/js/7.9e316ae1.js"><link rel="prefetch" href="/blog_web/assets/js/8.c44e6e7d.js">
+    <link rel="stylesheet" href="/blog_web/assets/css/0.styles.18b9dbef.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog_web/" class="home-link router-link-active"><!----> <span class="site-name">ganyzpro的Blog</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blog_web/web/" class="nav-link router-link-active">
+  Web
+</a></div><div class="nav-item"><a href="https://github.com/ganyzpro/blog_web" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/blog_web/web/" class="nav-link router-link-active">
+  Web
+</a></div><div class="nav-item"><a href="https://github.com/ganyzpro/blog_web" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/blog_web/web/base/js.html" class="sidebar-link">js基础</a></li><li><a href="/blog_web/web/base/handle.html" aria-current="page" class="active sidebar-link">手写源码</a></li><li><a href="/blog_web/web/base/stack.html" class="sidebar-link">数据结构与算法</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><p>//call</p> <div class="language- extra-class"><pre><code>Function.prototype.call2 = function(context,...args){
+
+    let context = context || window
+    //获取调用call的函数，用this可以获取到
+    context.fn = this
+    let result = eval('context.fn(...args)')
+    delete context.fn
+    return result
+}
+</code></pre></div><p>apply</p> <div class="language- extra-class"><pre><code>Function.prototype.apply2 = function(context,args){
+
+    let context = context || window
+    context.fn = this
+    let result = eval('context.fn(...args)')
+    delete context.fn
+    return result
+}
+</code></pre></div><p>bind</p> <div class="language- extra-class"><pre><code>Function.prototype.bind2 = function(context,...args) {
+    &lt;!--异常处理--&gt;
+    if(typeof this !== &quot;function&quot;) {
+        throw new Error(&quot;Function.prototype.bind - what is trying to be bound is not callable&quot;)
+    }
+    &lt;!--保存this的值，他代表调用bind的函数--&gt;
+    var self = this;
+    &lt;!--空函数中转--&gt;
+    var fNop = function() {}
+    var fbound = function () {
+        self.apply(this instanceof self ? this : context,args.concat(Array.prototype.slice.call(arguments)))
+    }
+    fNop.prototype = this.prototype;
+    fbound.prototype = new fNop;
+    return fbound;
+}
+</code></pre></div><p>new</p> <div class="language- extra-class"><pre><code>function newFactory(ctor,...args) {
+    if(typeof ctor !== 'function') {
+        throw 'newOperator function the first param must be a function'
+    }
+    let obj = new Object();
+    obj.__proto__ = Object.create(ctor.prototype);
+    let res = ctor.apply(obj,...args);
+    
+    let isObject = typeof res === 'object' &amp;&amp; typeof res !== null;
+    let isFunction = typeof res === 'function';
+    return isObject || isFunction ? res : obj
+}
+</code></pre></div><p>寄生组合继承</p> <div class="language- extra-class"><pre><code>function Parent (name) {
+    this.name = name;
+    this.colors = ['red', 'blue', 'green'];
+}
+Parent.prototype.getName = function () {
+    console.log(this.name)
+}
+function Child (name, age) {
+    Parent.call(this, name);
+    this.age = age;
+}
+Child.prototype = Object.create(Parent.prototype);
+Child.prototype.constructor = Child;
+
+const child1 = new Child('kevin', '18');
+
+console.log(child1);
+</code></pre></div><p>防抖</p> <div class="language- extra-class"><pre><code>function debounce(func,wait,immediate) {
+    let timeout,result
+    return function() {
+        const context = this
+        const args = arguments
+        if(timeout) clearTimeout(timeout)
+        if(immediate) {
+            let callNow = !timeout
+            timeout = setTimeout(function(){
+                timeout = null;
+            },wait)
+            if(callNow) result = func.apply(context,args)
+        }else{
+            timeout = setTimeout(function(){
+                func.apply(context,args)
+            },wait)
+        }
+    }
+}
+</code></pre></div><p>节流</p> <p>深拷贝</p> <div class="language- extra-class"><pre><code>function deepClone(target) {
+    // is Object???
+    if (typeof target == &quot;object&quot;) {
+        // array or object
+        const result = Array.isArray(target) ? [] : {}
+        for (let key in target) {
+            if (target.hasOwnProperty(key)) {
+                // 引用类型需要再次递归
+                result[key] = typeof target[key] == &quot;object&quot; ? deepClone(target[key]) : target[key]
+            }
+        }
+        return result
+    }
+    return target
+}
+</code></pre></div><p>promise</p> <div class="language- extra-class"><pre><code>//定义三种状态
+const PENDING = &quot;pending&quot;;
+const FULFILLED = &quot;fulfilled&quot;;
+const REJECTED = &quot;rejected&quot;;
+
+function MyPromise(executor){
+    const self = this;          // 缓存当前promise实例
+    self.state = PENDING;       // 默认状态
+    self.value = null;          // 成功的值
+    self.error = null;          // 失败的值
+    self.onFulfilled = null;    // 保存then中的回调
+    self.onRejected = null;     // 保存catch中的回调
+
+    const resolve = (value) =&gt; {
+        if(self.state == PENDING){
+            setTimeout(() =&gt; {
+                self.state = FULFILLED;
+                self.value = value;
+                self.onFulfilled(self.value)
+            })
+        }
+    }
+    
+    const reject = (error) =&gt; {
+        if(self.state == PENDING){
+            setTimeout(() =&gt; {
+                self.state = REJECTED;
+                self.error = error;
+                self.onRejected(self.value)
+            })
+        }
+    }
+
+    // 如果executor执行报错，直接执行reject
+    try{
+        executor(resolve, reject)
+    }catch(err){
+        reject(err)
+    }
+}
+
+MyPromise.prototype.then = function(onFulfilled, onRejected){
+    if(this.state == PENDING){
+        this.onFulfilled = onFulfilled
+        this.onRejected = onRejected
+    }
+    else if(this.state == FULFILLED){
+        onFulfilled(this.value)
+    }
+    else{
+        onRejected(this.error)
+    }
+    return this;
+}
+
+//执行promise
+new MyPromise((resolve, reject) =&gt; {
+    setTimeout(() =&gt; {
+        resolve(1)
+    }, 1000)
+}).then(res =&gt; {
+    console.log(res) // 1
+})
+</code></pre></div><p>instanceof</p> <div class="language- extra-class"><pre><code>function myInstanceof(left, right) {
+    //基本数据类型直接返回false
+    if(typeof left !== 'object' || left === null) return false;
+    //getProtypeOf是Object对象自带的一个方法，能够拿到参数的原型对象
+    let proto = Object.getPrototypeOf(left);
+    while(true) {
+        //查找到尽头，还没找到
+        if(proto == null) return false;
+        //找到相同的原型对象
+        if(proto == right.prototype) return true;
+        proto = Object.getPrototypeOf(proto);
+    }
+}</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/blog_web/web/base/js.html" class="prev">
+        js基础
+      </a></span> <span class="next"><a href="/blog_web/web/base/stack.html">
+        数据结构与算法
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/blog_web/assets/js/app.844154a0.js" defer></script><script src="/blog_web/assets/js/2.172aba56.js" defer></script><script src="/blog_web/assets/js/9.0299dd8c.js" defer></script>
+  </body>
+</html>
